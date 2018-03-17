@@ -1,0 +1,51 @@
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Search for an artwork</h1>
+      <p class="lead text-muted"></p>
+    </div>
+  </section>
+
+  <section class="text-center" style="text-align: center !important">
+    <div class="container">
+      <form class="" >
+          <div class="form-group">
+            <label for="artworkId" style="display: inline;">Artwork ID(ex: 0, 1, 2..) <span class="text-muted">:</span> </label>
+            <input class="form-control" type="number" name="artworkId" ng-model="currentArtworkSearch.theDot" style="max-width: 30%; display: inline;" required>
+          </div>
+        <button type="submit" class="btn btn-primary" ng-click="searchForArtwork()">Search <i class="fas fa-search"></i></button>
+      </form>
+    </div>
+  </section>
+
+  <br>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="text-muted" ng-if="IAnameHelper[currentArtworkSearch.theDot].length == null || IAnameHelper[currentArtworkSearch.theDot].length < 1" style="text-align: center;">This artwork wasn't created yet!</div>
+
+      <div class="row" ng-if="IAnameHelper[currentArtworkSearch.theDot].length != null || IAnameHelper[currentArtworkSearch.theDot].length >= 1">
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="" ng-attr-id="{{ 'imageOfArtwork' + currentArtworkSearch.theDot }}">
+            <div class="card-body">
+              <h3 class="card-title" style="text-align: center !important;">{{IAnameHelper[currentArtworkSearch.theDot]}}</h3>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">{{ IApriceHelper[currentArtworkSearch.theDot].c[0].toString().slice(0, -4) +"."+IApriceHelper[currentArtworkSearch.theDot].c[0].toString().slice(-4)}} ether</small>
+                
+                <div class="btn-group">
+                  <button type="button" ng-click="buyInitialAuction(currentArtworkSearch.theDot)" class="btn btn-sm btn-outline-secondary">Buy</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>

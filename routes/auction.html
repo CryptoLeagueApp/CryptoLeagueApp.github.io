@@ -1,0 +1,45 @@
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Artwork auction</h1>
+      <p class="lead text-muted">The newly added artworks are shown here, follow the advancement of the auction and pick up what you like before someone else does!</p>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="text-muted" ng-if="listOfArtworksInInitialAuction.length == 0 && !getEventsAlreadyExecuted" style="text-align: center;"> Loading..</div>
+
+      <div class="text-muted" ng-if="listOfArtworksInInitialAuction.length == 0 && getEventsAlreadyExecuted" style="text-align: center;"> Nothing to display for the moment, get back a bit later!</div>
+
+      <div class="row">
+        <div ng-repeat="(key, value) in listOfArtworksInInitialAuction track by $index" class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="" ng-attr-id="{{ 'imageOfArtwork' + value }}">
+            <div class="card-body">
+              <h3 class="card-title" style="text-align: center !important;">{{IAnameHelper[value]}}</h3>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">{{ IApriceHelper[value].c[0].toString().slice(0, -4) +"."+IApriceHelper[value].c[0].toString().slice(-4)}} ether</small>
+                
+                <div class="btn-group">
+                  <button type="button" ng-click="buyInitialAuction(value)" class="btn btn-sm btn-outline-secondary">Buy</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!--<div ng-repeat="(key, value) in listOfArtworksInInitialAuction track by $index">  
+  {{ IApriceHelper[value].c[0].toString().slice(0, -4) +"."+IApriceHelper[value].c[0].toString().slice(-4)}} ether
+  <br> {{IAnameHelper[value]}}
+  <img src="" ng-attr-id="{{ 'imageOfArtwork' + value }}">
+</div>-->

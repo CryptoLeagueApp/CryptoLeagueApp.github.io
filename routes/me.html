@@ -1,0 +1,21 @@
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Personal space</h1>
+      <p class="lead text-muted">Here you can withdraw ether off the smart contract if you have any!</p>
+    </div>
+  </section>
+
+  <section class="album py-5 bg-light" style="text-align: center">
+    <div class="container">
+      <h3 class="">You have {{ currentAccountBalanceInTheSmartContract.c[0].toString().slice(0, -4) +"."+currentAccountBalanceInTheSmartContract.c[0].toString().slice(-4)}} ether on the smart contract</h1>
+      <p class="lead text-muted" ng-if="currentAccountBalanceInTheSmartContract == 0 || currentAccountBalanceInTheSmartContract.c[0] == '00000'">Sell some artworks or percentage of them to gain ether!</p>
+      <p class="lead text-muted" ng-if="currentAccountBalanceInTheSmartContract != 0 && currentAccountBalanceInTheSmartContract.c[0] != '00000'">Withdraw your ether off the smart contract:</p>
+      <p class="lead" style="text-align: center">
+        <button ng-class="{disabled: currentAccountBalanceInTheSmartContract == 0 || currentAccountBalanceInTheSmartContract.c[0] == '00000'}" class="btn btn-primary btn-lg" role="button" ng-click="withdraw()">Withdraw</button>
+      </p>
+    </div>
+  </section>
+
+</main>

@@ -1,0 +1,59 @@
+<div class="container">
+
+  <div style="padding: 40px 15px; text-align: center;">
+    <h1>Adding a new artwork</h1>
+
+    <br>
+
+    <form name="mintArworkForm">
+      <div class="form-group">
+        <div class="form-group">
+          <label>
+             Artwork ID(ex: 0, 1, 2..) :
+             <input class="form-control" type="text" name="_tokenId" ng-model="mintArtwork._tokenId" required>
+          </label>
+          <div role="alert">
+            <span class="error" ng-show="mintArtwork._tokenId.$error.required">
+             Required!</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>
+             IPFS link:
+             <input class="form-control" type="text" name="_link" ng-model="mintArtwork._link" required>
+          </label>
+          <div role="alert">
+            <span class="error" ng-show="mintArtwork._tokenId.$error.required">
+             Required!</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>
+             Artwork name:
+             <input class="form-control" type="text" name="_name" ng-model="mintArtwork._name" required>
+          </label>
+          <div role="alert">
+            <span class="error" ng-show="mintArtwork._name.$error.required">
+             Required!</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>
+             Third foundation's address:
+             <input class="form-control" type="text" name="_foundation3" ng-model="mintArtwork._foundation3" required>
+          </label>
+          <div role="alert">
+            <span class="error" ng-show="mintArtwork._foundation3.$error.required">
+             Required!</span>
+          </div>
+        </div>
+
+      </div>
+      <button type="submit" class="btn btn-default" ng-click="submitMintArtwork()" ng-disabled="mintArworkForm.$invalid || submitMintArtworkLocked">Submit</button>
+    </form>
+  </div>
+
+</div><!-- /.container -->
