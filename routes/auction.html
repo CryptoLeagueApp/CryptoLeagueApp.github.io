@@ -10,9 +10,9 @@
   <div class="album py-5 bg-light">
     <div class="container">
 
-      <div class="text-muted" ng-if="listOfArtworksInInitialAuction.length == 0 && !getEventsAlreadyExecuted" style="text-align: center;"> Loading..</div>
+      <div class="text-muted" ng-if="listOfArtworksInInitialAuction.length == 0 && !getEventsAlreadyExecuted" style="text-align: center;"> Loading.. (Make sure that MetaMask is connected with the Ropsten test network)</div>
 
-      <div class="text-muted" ng-if="listOfArtworksInInitialAuction.length == 0 && getEventsAlreadyExecuted" style="text-align: center;"> Nothing to display for the moment, get back a bit later!</div>
+      <div class="text-muted" ng-if="listOfArtworksInInitialAuction.length == 0 && getEventsAlreadyExecuted" style="text-align: center;"> Nothing to display for the moment, get back a bit later! (Make sure that MetaMask is connected with the Ropsten test network)</div>
 
       <div class="row">
         <div ng-repeat="(key, value) in listOfArtworksInInitialAuction track by $index" class="col-md-4">
